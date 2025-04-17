@@ -7,7 +7,7 @@ const PokemonInfoCard = () => {
   const [searchInput, setSearchInput] = useState("pikachu");
   const [searchQuery, setSearchQuery] = useState("pikachu");
 
-  // Function to handle search submission
+
   const handleSearch = (e) => {
     e.preventDefault();
     setSearchQuery(searchInput.toLowerCase().trim());
@@ -34,7 +34,6 @@ const PokemonInfoCard = () => {
     fetchData();
   }, [searchQuery]);
 
-  // Format stat names in a cleaner way
   const formatStatName = (name) => {
     const statMap = {
       "hp": "HP",
@@ -48,7 +47,7 @@ const PokemonInfoCard = () => {
   };
 
   const renderStatBar = (value) => {
-    // Dynamic colors based on stat value using HSL
+
     const hue = Math.min(120, Math.max(0, value / 150 * 120));
     return (
       <div className="h-2 rounded-full bg-gray-700 w-full overflow-hidden">
@@ -65,7 +64,7 @@ const PokemonInfoCard = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-900 to-purple-900 p-4 flex flex-col items-center w-full">
-      {/* Search Form - Full width on mobile */}
+
       <form onSubmit={handleSearch} className="w-full max-w-md mb-6 mt-4 px-2">
         <div className="flex rounded-lg overflow-hidden shadow-lg">
           <input
@@ -84,14 +83,14 @@ const PokemonInfoCard = () => {
         </div>
       </form>
 
-      {/* Loading State */}
+
       {isLoading && (
         <div className="flex items-center justify-center p-8 w-full">
           <div className="text-xl text-white animate-pulse">Loading Pokémon data...</div>
         </div>
       )}
 
-      {/* Error State */}
+
       {error && !isLoading && (
         <div className="bg-red-900/80 border border-red-700 text-red-100 p-6 rounded-lg shadow-lg w-full mx-2 sm:max-w-md">
           <p className="font-semibold text-lg mb-2">Error:</p>
@@ -100,17 +99,16 @@ const PokemonInfoCard = () => {
         </div>
       )}
 
-      {/* Pokemon Card - Full width on mobile */}
+
       {pokemonData && !isLoading && !error && (
         <div className="w-full px-0 sm:px-4 sm:max-w-2xl">
           <div className="bg-gray-800/90 backdrop-blur rounded-2xl overflow-hidden shadow-2xl">
-            
-            {/* Card Header with Background */}
+
             <div className="relative">
-              {/* Background gradient based on pokemon primary type */}
+
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/90 to-purple-700/90"></div>
               
-              {/* Pokemon Image - Maintain aspect ratio with responsive sizing */}
+
               <div className="relative pt-8 pb-4 flex flex-col items-center">
                 <div className="bg-white/20 rounded-full p-3 backdrop-blur-sm mb-3">
                   <div className="w-28 h-28 sm:w-40 sm:h-40 relative">
@@ -123,7 +121,7 @@ const PokemonInfoCard = () => {
                   </div>
                 </div>
 
-                {/* Pokemon Name & Number */}
+ 
                 <h1 className="text-2xl sm:text-4xl font-bold text-white capitalize mt-2 text-center px-4">
                   {pokemonData.name}
                 </h1>

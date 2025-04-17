@@ -39,7 +39,7 @@ function App() {
           </button>
         </div>
       </div>
-      <div className="container mx-auto px-4 pb-12">
+      <div className="w-screen mx-auto px-4 pb-12">
         
         <div className="w-full relative min-h-screen md:min-h-0 md:h-96 lg:h-128">
       
@@ -58,7 +58,7 @@ function App() {
         </div>
       </div>
 
-      {/* Footer */}
+
       <footer className="bg-gray-900/80 backdrop-blur py-4 mt-6">
         <div className="container mx-auto text-center text-gray-400 text-sm">
           <p>Powered by PokéAPI</p>

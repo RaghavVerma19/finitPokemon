@@ -9,13 +9,12 @@ export default function EvoCard() {
   const [pokemonName, setPokemonName] = useState("pikachu");
   const [searchInput, setSearchInput] = useState("pikachu");
 
-  // Handle form submission
+
   const handleSearch = (e) => {
     e.preventDefault();
     setPokemonName(searchInput.toLowerCase().trim());
   };
 
-  // Fetch species data first (which contains the evolution chain URL)
   useEffect(() => {
     const fetchSpeciesData = async () => {
       setIsLoading(true);
@@ -37,7 +36,7 @@ export default function EvoCard() {
     fetchSpeciesData();
   }, [pokemonName]);
 
-  // Once we have species data, fetch the evolution chain
+
   useEffect(() => {
     if (!speciesData) return;
 
@@ -59,28 +58,28 @@ export default function EvoCard() {
     fetchEvolutionChain();
   }, [speciesData]);
 
-  // Process evolution chain data once we have it
+
   useEffect(() => {
     if (!evolutionChain) return;
 
     const processEvolutionChain = async () => {
       try {
-        // Start with the base form
+
         const evoData = [];
         let currentStage = evolutionChain.chain;
         
-        // Process all evolution stages
+
         while (currentStage) {
           const speciesName = currentStage.species.name;
           
-          // Fetch basic Pokémon data for each evolution
+
           const pokemonResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${speciesName}`);
           if (!pokemonResponse.ok) {
             throw new Error(`Pokémon data not found for ${speciesName}`);
           }
           const pokemonData = await pokemonResponse.json();
           
-          // Add to our evolution array
+
           evoData.push({
             id: pokemonData.id,
             name: speciesName,
@@ -96,7 +95,7 @@ export default function EvoCard() {
             location: currentStage.evolution_details[0]?.location?.name || null,
           });
           
-          // Move to next evolution if it exists
+          
           if (currentStage.evolves_to.length > 0) {
             currentStage = currentStage.evolves_to[0];
           } else {
