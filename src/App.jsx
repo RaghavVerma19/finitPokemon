@@ -8,14 +8,14 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       <header className="bg-gray-900/80 backdrop-blur shadow-lg">
-        <div className="container mx-auto py-4 px-4">
+        <div className="w-screen px-4">
           <h1 className="text-2xl sm:text-3xl font-bold text-center text-white">
             Pokédex App
           </h1>
         </div>
       </header>
 
-      <div className="container mx-auto px-4 pt-6">
+      <div className="w-full px-4 pt-6">
         <div className="bg-gray-800/70 rounded-lg p-2 flex shadow-lg mb-6">
           <button
             onClick={() => setActiveView("info")}
@@ -39,7 +39,7 @@ function App() {
           </button>
         </div>
       </div>
-      <div className="container mx-auto px-4 pb-12">
+      <div className="w-full px-4 pb-12">
         
         <div className="w-full relative min-h-screen md:min-h-0 md:h-96 lg:h-128">
       
@@ -58,9 +58,9 @@ function App() {
         </div>
       </div>
 
-      {/* Footer */}
+  
       <footer className="bg-gray-900/80 backdrop-blur py-4 mt-6">
-        <div className="container mx-auto text-center text-gray-400 text-sm">
+        <div className="w-full text-center text-gray-400 text-sm">
           <p>Powered by PokéAPI</p>
         </div>
       </footer>
