@@ -100,7 +100,7 @@ const PokemonInfoCard = () => {
 
 
       {pokemonData && !isLoading && !error && (
-        <div className="w-full px-4 ">
+        <div className="w-screen px-4 ">
           <div className="bg-gray-800/90 backdrop-blur rounded-2xl overflow-hidden shadow-2xl">
             
 
